@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caluculator</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .box{
+        height: 100vh;
+        width: 100%;
+        background: linear-gradient(#303030,#fff);
+        position: relative;
+    }
+    .box-title{
+        display: flex;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .box-item{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .box-item .firstinput{
+        width: 100%;
+        display: flex;
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    .box-item .firstinput label{
+        width: 100%;
+        display: flex;
+        padding: 1rem;
+        margin-right: 20px;
+    }
+    .box-item .firstinput input{
+        width: 100%;
+        padding: 10px;
+        margin: 12px;
+        border-radius: 8px;
+        outline: 0;
+        border: 0;
+    }
+
+    .box-item .secondinput{
+        width: 100%;
+        display: flex;
+        padding: 1rem;
+    }
+    .box-item .secondinput label{
+        width: 100%;
+        display: flex;
+        padding: 20px 0;
+        margin-right: 20px;
+    }
+
+    .box-item .secondinput input{
+        width: 100%;
+        padding: 10px;
+        margin: 12px;
+        border-radius: 8px;
+        outline: 0;
+        border: 0;
+    }
+    .btnfield{
+        width: 100%;
+        display: flex;
+        flex-basis: 25%;
+        justify-content: space-between;
+    }
+    .btnfield button{
+        width: 80px;
+        padding: 8px;
+        border-radius: 13px;
+        border: 0;
+        outline:0;
+    }
+    .input{
+        width: 100%;
+        margin: 10px 0;
+    }
+    .input p{
+        padding: 10px 0;
+        margin: 2px 0;
+        font-size: 20px;
+    }
+
+
+    
+
+    
+
+</style>
+<body>
+    <div class="box">
+            <div class="box-title">
+                <div class="title">
+                    <h1>Add-Subtract-Multiply-Divide</h1>
+                </div>
+            </div>
+        <div class="box-item">
+                <div class="firstinput">
+                    <label for="">Enter first number:</label>
+                    <input type="text" id="myInput"><br />   
+                </div>
+                <div class="secondinput">
+                    <label for="">Enter Second number:</label>
+                    <input type="text" id="myInput2"><br /><br />
+                </div>
+            <div class="btnfield">
+                <button type="button" id="myBtn" onclick="mySum()"> Add</button>
+                <button type="button" id="myBtn" onclick="mySub()"> Subtract</button>
+                <button type="button" id="myBtn" onclick="myMul()"> Multiply</button>
+                <button type="button" id="myBtn" onclick="myDiv()"> Divide</button>
+            </div>
+            <div class="input">
+                <p id="first"></p>
+                <p id="second"></p>
+                <hr>
+                <hr> 
+            </div> 
+                <p id="output"></p>
+           
+        </div>
+
+    </div>
+    
+    
+    
+    
+    
+
+
+    
+    <script>
+
+        let int1;
+        let int2;
+        console.log(typeof int1)
+        let sum;
+        sum = Number(sum)
+        function mySum() {
+
+            int1 = document.getElementById("myInput").value
+            int2 = document.getElementById("myInput2").value
+            int1 = Number(int1);
+            int2 = Number(int2);
+            let sum = int1 + int2;
+
+            document.getElementById("first").innerHTML=  int1;
+            document.getElementById("second").innerHTML = int2;
+            document.getElementById("output").innerHTML = "Total " +"=" + sum;
+        }
+        function mySub() {
+            int1 = document.getElementById("myInput").value
+            int2 = document.getElementById("myInput2").value
+            int1 = Number(int1);
+            int2 = Number(int2);
+            let sum = int1 - int2;
+
+            document.getElementById("first").innerHTML = int1;
+            document.getElementById("second").innerHTML = int2;
+            document.getElementById("output").innerHTML = "Total " + "=" + sum;
+        }
+        function myMul() {
+            int1 = document.getElementById("myInput").value
+            int2 = document.getElementById("myInput2").value
+            int1 = Number(int1);
+            int2 = Number(int2);
+            let sum = int1 * int2;
+
+            document.getElementById("first").innerHTML = int1;
+            document.getElementById("second").innerHTML = int2;
+            document.getElementById("output").innerHTML = "Total " + "=" + sum;
+        }
+        function myDiv() {
+            int1 = document.getElementById("myInput").value
+            int2 = document.getElementById("myInput2").value
+            int1 = Number(int1);
+            int2 = Number(int2);
+            let sum = int1 / int2;
+
+            document.getElementById("first").innerHTML = int1;
+            document.getElementById("second").innerHTML = int2;
+            document.getElementById("output").innerHTML = "Total " + "=" + sum;
+        }
+    </script>
+</body>
+</html>

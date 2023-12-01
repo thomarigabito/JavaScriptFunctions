@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Fredoka', sans-serif;
+        background: linear-gradient(to right bottom, #ffa585, #ffeda0);
+        background-attachment: fixed;
+    }
+
+    .container {
+        width: 95%;
+        height: 25vh;
+        margin: auto;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 25px 0;
+    }
+
+    .nav h2 {
+        font-size: 2rem;
+    }
+    .nav a{
+        text-decoration: none;
+        color: lightcoral;
+        font-size: 21px;  
+    }
+    .nav a i {
+        margin-right: 3px;
+        color: lightcoral;
+    }
+
+    .user-input {
+        width: 350px;
+        text-align: center;
+    }
+
+    .user-input input {
+        width: 80%;
+        outline: none;
+        padding: 8px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .user-input input:focus {
+        box-shadow: 0 0 5px black;
+        border: 1px solid black;
+    }
+
+    .user-input button {
+        cursor: pointer;
+        padding: 8px;
+        width: fit-content;
+        outline: none;
+        transition: 1s;
+        outline: none;
+        background-color: antiquewhite;
+        border: 1px solid antiquewhite;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .user-input button:hover {
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .to-do-items {
+        width: 500px;
+        margin: auto
+    }
+
+    .item {
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+        padding: 16px;
+        color: #454545;
+        margin-top: 10px;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .item:hover {
+        box-shadow: 0 0 20px #999;
+        border: 1px solid #999;
+    }
+
+    .item i {
+        cursor: pointer;
+        margin: 0 5px
+    }
+
+    .temperature button {
+        cursor: pointer;
+        padding: 8px;
+        width: fit-content;
+        outline: none;
+        transition: 1s;
+        outline: none;
+        background-color: lightgreen;
+        border: 1px solid rgb(196, 176, 150);
+        border-radius: 10px;
+
+    }
+
+    .input-temp {
+        outline: none;
+        padding: 8px;
+        border: 10px;
+    }
+
+    .input-temp:focus {
+        box-shadow: 0 0 5px black;
+        border: 1px solid black;
+
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .nav {
+            justify-content: center;
+        }
+
+        .nav h2 {
+
+            margin: 10px 0;
+        }
+
+        .user-input {
+            width: 100%;
+        }
+
+        .to-do-items {
+            width: 100%;
+        }
+    }
+
+    @media (max-width:480px) {
+        .user-input input {
+            width: 74%;
+        }
+
+    }
+
+    @media (max-width:320px) {
+        .user-input input {
+            width: 60%;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <h2><i class="fa-solid fa-check"></i>To-do List</h2>
+            <div class="user-input">
+                <input id="input" type="text" placeholder="Type here e.g Homework" required>
+                <button onclick="addItems()">Submit</button>      
+            </div>
+            <a href="index.html"><i class="fa-solid fa-house"></i>Home</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="to-do-items">
+        </div>
+    </div>
+
+
+    <script>
+        //JAVASCRIP FUNCTION
+        // IF ELES STATEMENT
+        // APPEND 
+        // DEAPPEND
+        //addEventListener ("click") -(method) for making event when mouse is being click
+        // document.createElement -(method) to make new element in HTML DOM
+        // docvument.getElementByClassName- calling specifict elemt by class name
+        // 
+
+
+        const toDoItems = document.getElementsByClassName("to-do-items")[0];
+        const input = document.getElementById("input");
+        const trashIcon = document.getElementById("trash");
+
+        input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter")
+                addItem();
+        })
+
+        function addItems() {
+            var divParent = document.createElement("div");//Creating Parent division - <div class="items"></div>
+            var divChild = document.createElement("div");//Creating Child dividion - <div></div>
+            var checkIcon = document.createElement("i");//Creating Icon 
+            var trashIcon = document.createElement("i");//Creating Icon
+
+            //Declairing class name for divParent = item
+            divParent.className = "item";
+            //for printing and getting value of input.
+            divParent.innerHTML = input.value;
+
+            //Declairing className for checksqure icon
+            checkIcon.className = "fas fa-check-square";
+            //styling
+            checkIcon.style.color = "lightgray";
+            //function clicking change style.color
+            checkIcon.addEventListener("click", function () {
+                checkIcon.style.color = "limegreen";
+            })
+
+            //adding appenChild in divChild
+            divChild.appendChild(checkIcon);
+
+            trashIcon.className = "fas fa-trash-can";
+            trashIcon.style.color = "darkgray";
+            trashIcon.addEventListener("click", function () {
+                divParent.remove();
+            })
+
+            divChild.appendChild(trashIcon);
+            divParent.appendChild(divChild);
+            toDoItems.appendChild(divParent);
+
+            input.value = '';
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

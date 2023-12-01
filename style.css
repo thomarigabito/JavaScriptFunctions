@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.box{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.71), rgba(140, 72, 72, 0.688)), url(pexels-danny-meneses-943101.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.box-items{
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.buttonfield{
+    width: 100%;
+    display: flex;
+    justify-content: center ;
+    text-align: center;
+}
+.buttonfield a{
+    width: 50%;
+    margin: 1rem auto;
+    padding: 10px;
+    border-radius: 30px;
+    height: 45px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background 1s;
+    cursor: pointer;
+    box-shadow: 0 0 10px #fff;
+    outline: 0;
+    border: 0;
+    background:#d3c2ad;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.buttonfield a:focus{
+    box-shadow: 0 0 10px gold;
+    background: #777777;
+}
+
+h3{
+    border-radius: 50px;
+    font-size: 35px;
+    background: #d3c2ad;
+    box-shadow: 0 0 10px #fff;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    padding: 15px;
+}
